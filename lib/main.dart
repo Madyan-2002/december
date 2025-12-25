@@ -1,6 +1,12 @@
 import 'package:december/Lecture01/home_screen.dart';
 import 'package:december/Lecture02/rich_text.dart';
 import 'package:december/Lecture03/text_review.dart';
+import 'package:december/Lecture04/container_lec.dart';
+import 'package:december/Lecture05/icon_widget.dart';
+import 'package:december/Lecture06/image_widget.dart';
+import 'package:december/Lecture07/image_in_container.dart';
+import 'package:december/call%20screens/screen_call1.dart';
+import 'package:december/call%20screens/task.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,9 +18,15 @@ class MyApp extends StatelessWidget{
  Widget build(BuildContext context) {
   return MaterialApp(
     debugShowCheckedModeBanner: false,
-    //home:HomeScreen()
-    home:TextReview()
+    // home:HomeScreen()
+    // home:TextReview()
     // home:RichTextPage()
+    //home:ContainerLec()
+    //home:IconWidget()
+    //home:ScreenCall1()
+    home:Task()
+    // home:ImageWidget()
+    //home:ImageInContainer()
   );
  }
 }
