@@ -9,6 +9,8 @@ import 'package:december/Lecture10/buttons.dart';
 import 'package:december/Lecture08/screen_call1.dart';
 import 'package:december/Lecture08/task.dart';
 import 'package:december/Lecture10/task_buttons.dart';
+import 'package:december/Lecture11/colors_class.dart';
+import 'package:december/Lecture11/task22.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -30,7 +32,9 @@ class MyApp extends StatelessWidget{
     // home:ImageWidget()
     //home:ImageInContainer()
     //home:Buttons()
-    home:TaskButtons()
+    // home:TaskButtons()
+    //home:ColorsClass()
+   home:Task22()
   );
  }
 }
