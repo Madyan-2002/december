@@ -4,23 +4,30 @@ import 'package:flutter/material.dart';
 class AnswerWidget extends StatelessWidget {
   final String choice;
   final Color color;
+  final Color bgColor;
   final String text;
+  final VoidCallback onTap;
 
   const AnswerWidget({
     super.key,
     required this.choice,
     required this.color,
+    required this.bgColor,
     required this.text,
+    required this.onTap
   });
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return SizedBox(
+      
       height: size.height * 0.09,
       width: double.infinity,
 
       child: Card(
+        color:bgColor ,
+        borderOnForeground: true,
         elevation: 8,
         child: ListTile(
           leading: Container(
@@ -39,7 +46,7 @@ class AnswerWidget extends StatelessWidget {
               fontWeight: .bold,
             ),
           ),
-          onTap: () {},
+          onTap: onTap,
         ),
       ),
     );

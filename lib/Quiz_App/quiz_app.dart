@@ -1,3 +1,4 @@
+import 'package:december/Quiz_App/Data/data_base.dart';
 import 'package:december/Quiz_App/style/colors_class2.dart';
 import 'package:december/Quiz_App/style/text_style_class.dart';
 import 'package:december/Quiz_App/widget/answer_widget.dart';
@@ -10,6 +11,7 @@ class QuizApp extends StatefulWidget {
 }
 
 class _QuizApp extends State<QuizApp> {
+  int choiceIndex = -1;
   @override
   Widget build(BuildContext context) {
     //final size = MediaQuery.of(context).size;
@@ -23,33 +25,30 @@ class _QuizApp extends State<QuizApp> {
         padding: const EdgeInsets.all(15),
         child: Column(
           children: [
-            QuestionWidget(text: "What is fav color ?"),
+            QuestionWidget(text: question[1].question),
             SizedBox(height: 20),
             Text(
               "Select the correct answer",
-              style: TextStyle(color: ColorsClass2.thridColor),
+              style: TextStyle(color: ColorsClass2.questionColor),
             ),
-            AnswerWidget(
-              choice: 'A',
-              color: ColorsClass2.secondColor,
-              text: 'Red',
+            Column(
+              children: question[1].answer.map((a) {
+                int tapIndex = question[1].answer.indexOf(a);
+                return AnswerWidget(
+                  choice: a.choice,
+                  color: ColorsClass2.secondColor,
+                  bgColor: choiceIndex == tapIndex
+                      ? ColorsClass2.thridColor
+                      : ColorsClass2.secondColor,
+                  text: a.answer,
+                  onTap: () {
+                    setState(() {
+                      choiceIndex = tapIndex;
+                    });
+                  },
+                );
+              }).toList(),
             ),
-            AnswerWidget(
-              choice: 'B',
-              color: ColorsClass2.secondColor,
-              text: 'Blue',
-            ),
-            AnswerWidget(
-              choice: 'C',
-              color: ColorsClass2.secondColor,
-              text: 'Green',
-            ),
-            AnswerWidget(
-              choice: 'D',
-              color: ColorsClass2.secondColor,
-              text: 'Pink',
-            ),
-
             SizedBox(height: 40),
 
             ElevatedButton(
@@ -62,7 +61,7 @@ class _QuizApp extends State<QuizApp> {
                 child: Padding(
                   padding: const EdgeInsets.all(15),
                   child: Text(
-                    'Submit',
+                    'Next',
                     style: TextStyle(
                       color: ColorsClass2.secondColor,
                       fontSize: 20,
