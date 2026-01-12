@@ -31,7 +31,7 @@ class AnswerWidget extends StatelessWidget {
         elevation: 8,
         child: ListTile(
           leading: Container(
-            decoration: BoxDecoration(shape: BoxShape.circle, color: color),
+            decoration: BoxDecoration(shape: BoxShape.circle, color: ColorsClass2.secondColor),
 
             child: Padding(
               padding: const EdgeInsets.all(12.0),

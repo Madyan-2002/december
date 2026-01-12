@@ -7,4 +7,10 @@ class TextStyleClass {
     fontWeight: .bold,
     color: ColorsClass2.secondColor,
   );
+
+  static TextStyle con = TextStyle(
+    fontSize: 25,
+    fontWeight: .bold,
+    color: ColorsClass2.primaryColor,
+  );
 }
