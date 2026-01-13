@@ -13,4 +13,10 @@ class TextStyleClass {
     fontWeight: .bold,
     color: ColorsClass2.primaryColor,
   );
+
+  static TextStyle score = TextStyle(
+    fontSize: 15,
+    fontWeight: .bold,
+    color: ColorsClass2.questionColor,
+  );
 }

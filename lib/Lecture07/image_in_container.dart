@@ -1,127 +1,168 @@
 import 'package:flutter/material.dart';
 
-class ImageInContainer extends StatelessWidget{
+class ImageInContainer extends StatelessWidget {
+  const ImageInContainer({super.key});
+
   @override
   Widget build(BuildContext context) {
+    final List<String> category = [
+      'All',
+      'Category',
+      'Top',
+      'Recommended',
+      'Trend',
+      'Men',
+      'Women',
+      'Shoes',
+      'kids',
+      'Toys',
+    ];
 
-    List <String> category = ['All','Category','Top','Recommended'];
-   return Scaffold(
-    
-    body:SafeArea(child: Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-           Container(
-            width:200,
-            height:60,
-            decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                  color: Colors.blueGrey
+    final List<String> img = [
+      "https://thumbs.dreamstime.com/b/alpha-wolf-head-logo-crescent-moon-background-featuring-piercing-gaze-mysterious-vibe-ideal-adventure-brands-377379079.jpg",
+      "https://cdn.dribbble.com/userupload/44361796/file/8cddf626cc9582232a3523b3b9fe0227.png?resize=400x0",
+      "https://cdn.dribbble.com/userupload/42080287/file/original-c58b4eeb67400823a7e8c4cf193ac26f.jpg?format=webp&resize=400x300&vertical=center",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKYCAfOV8ZlwZcuRro0X7ndt3MZeyIj1uWWA&s",
+      "https://t3.ftcdn.net/jpg/07/04/95/22/360_F_704952202_aQWephYLdkm6HxOPRYDs29d7FCSgU9mt.jpg",
+      "https://wootandhammy.com/cdn/shop/articles/what-does-the-moon-symbolize.jpg?v=1569156055"
+    ];
+
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                // ---------- Search & Notification ----------
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      width: 200,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Color(0xCDc8c3c9),
+                      ),
+                      child: Row(
+                        children: const [
+                          Padding(
+                            padding: EdgeInsets.only(left: 10),
+                            child: Icon(Icons.search, color: Color(0xCDfa9802)),
+                          ),
+                          SizedBox(width: 10),
+                          Text(
+                            "Search",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: 60,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Color(0xCDc8c3c9),
+                      ),
+                      child: const Icon(
+                        Icons.notifications,
+                        color: Colors.deepOrangeAccent,
+                      ),
+                    ),
+                  ],
                 ),
-            child: Row(children: [
-              Padding(
-                padding: const EdgeInsets.only(left:10),
-                child: Icon(Icons.search,color:Colors.deepOrangeAccent),
-              ),
-              SizedBox(width: 10,),
-              Text("Search",
-              style: TextStyle(
-                fontWeight: FontWeight.bold
-              ),
-              )
-            ],
-            
-            )
-            
-           ),
-           Container(
-            width: 60,
-            height: 60,
-           decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                  color: Colors.blueGrey
+
+                const SizedBox(height: 20),
+
+                // ---------- Banner Image ----------
+                Container(
+                  width: double.infinity,
+                  height: 200,
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                    image: DecorationImage(
+                      image: NetworkImage(
+                        "https://d2a44wklwtsxx7.cloudfront.net/wp-content/uploads/sites/15/Moon-Phases-Meaning.webp",
+                      ),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
-            child: Icon(Icons.notification_add,color:Colors.deepOrangeAccent),
-            )
-          ]
-          ),
-          SizedBox(height: 20,),
-          Container(
-            width: double.infinity,
-            height: 200,
-            decoration: BoxDecoration(
-              image: DecorationImage(image: NetworkImage("https://images.pexels.com/photos/1054655/pexels-photo-1054655.jpeg?cs=srgb&dl=pexels-hsapir-1054655.jpg&fm=jpg"))
+
+                const SizedBox(height: 15),
+
+                // ---------- Category List ----------
+                SizedBox(
+                  height: 40,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: category.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(5),
+                        child: customContainer(category[index]),
+                      );
+                    },
+                  ),
+                ),
+
+                const SizedBox(height: 20),
+
+                // ---------- Images ----------
+                SizedBox(
+                  height: 200,
+                  child: ListView.builder(
+                    itemCount: img.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(15),
+                        child: customPhoto(img[index]),
+                      );
+                    },
+                  ),
+                ),
+              ],
             ),
-           
           ),
-          SizedBox(height: 20,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: category.map((s) => customContainer(s)).toList(),
-          ),
-          SizedBox(height: 20,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-            customPhoto("https://images.unsplash.com/photo-1497316730643-415fac54a2af?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8"),
-            customPhoto("https://cdn.pixabay.com/photo/2020/06/21/09/48/hill-5324149_640.jpg")
-          ],),
-          SizedBox(height: 20,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-            customPhoto("https://render.fineartamerica.com/images/rendered/medium/print/8/5.5/break/images/artworkimages/medium/3/valley-of-gods-john-mueller.jpg"),
-            customPhoto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS11YPByYwGLkcES05PTwnmqkPoRAFzOf9HA&s")
-          ],)
-          
-        ],
+        ),
       ),
-    )
-    ) 
-   );
-  }
-
-//*********************functions*******************************
-
-  Widget customContainer(String txt){
-    return Container(
-      decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
-                  color: Colors.blueGrey
-                ),
-                width: 80,
-                height: 25,
-                child: Center(
-                  child: Text(txt,
-                  style: TextStyle(
-                   fontSize: 10,
-                    color:Colors.black,
-                    fontWeight: FontWeight.bold,
-                    
-                  ),),
-                ),
     );
   }
 
-  Widget customPhoto(String img){
-    return 
-        Container(
-          width:130,
-          height: 130,
-          
-          decoration: BoxDecoration(
-            
-            borderRadius: BorderRadius.all(Radius.circular(15)),
-             image: DecorationImage(image: NetworkImage(img),
-             fit: BoxFit.cover),
-             
-            
+  // ---------- Category Chip ----------
+  Widget customContainer(String txt) {
+    return Container(
+      width: 80,
+      height: 25,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        color: Color(0xCDc8c3c9),
+      ),
+      child: Center(
+        child: Text(
+          txt,
+          style: const TextStyle(
+            fontSize: 11,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
           ),
-        );
-
+        ),
+      ),
+    );
   }
 
+  // ---------- Image Card ----------
+  Widget customPhoto(String img) {
+    return Container(
+      width: 130,
+      height: 140,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        image: DecorationImage(image: NetworkImage(img), fit: BoxFit.cover),
+      ),
+    );
+  }
 }

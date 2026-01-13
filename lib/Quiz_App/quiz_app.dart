@@ -40,7 +40,7 @@ class _QuizApp extends State<QuizApp> {
             ? questionScreen(score , resetQuiz)
             : Column(
                 children: [
-                  Text("Your score : $score"),
+                  Text("Your score : $score" ,style: TextStyleClass.score,),
                   QuestionWidget(text: question[index].question),
                   SizedBox(height: 20),
                   Text(
@@ -119,7 +119,7 @@ Widget questionScreen(int score , void Function() onReset) {
       
       mainAxisAlignment: .spaceEvenly,
       children: [
-          Text("congratulations",
+          Text("Congratulations",
           style: TextStyleClass.con
           ),
           Icon(Icons.celebration_outlined,size: 80, color: ColorsClass2.primaryColor,),
