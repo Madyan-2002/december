@@ -1,5 +1,3 @@
-
-
 import 'package:december/Quiz_App/Data/data_base.dart';
 import 'package:december/Quiz_App/style/colors_class2.dart';
 import 'package:december/Quiz_App/style/text_style_class.dart';
@@ -17,7 +15,7 @@ class _QuizApp extends State<QuizApp> {
   int index = 0;
   int score = 0;
 
-   void resetQuiz() {
+  void resetQuiz() {
     setState(() {
       index = 0;
       score = 0;
@@ -37,10 +35,10 @@ class _QuizApp extends State<QuizApp> {
       body: Padding(
         padding: const EdgeInsets.all(15),
         child: index == question.length
-            ? questionScreen(score , resetQuiz)
+            ? questionScreen(score, resetQuiz)
             : Column(
                 children: [
-                  Text("Your score : $score" ,style: TextStyleClass.score,),
+                  Text("Your score : $score", style: TextStyleClass.score),
                   QuestionWidget(text: question[index].question),
                   SizedBox(height: 20),
                   Text(
@@ -113,39 +111,39 @@ class _QuizApp extends State<QuizApp> {
   }
 }
 
-Widget questionScreen(int score , void Function() onReset) {
+Widget questionScreen(int score, void Function() onReset) {
   return Center(
     child: Column(
-      
       mainAxisAlignment: .spaceEvenly,
       children: [
-          Text("Congratulations",
-          style: TextStyleClass.con
+        Text("Congratulations", style: TextStyleClass.con),
+        Icon(
+          Icons.celebration_outlined,
+          size: 80,
+          color: ColorsClass2.primaryColor,
+        ),
+        Text("Your Socre is : $score", style: TextStyleClass.con),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            elevation: 15,
+            backgroundColor: ColorsClass2.primaryColor,
           ),
-          Icon(Icons.celebration_outlined,size: 80, color: ColorsClass2.primaryColor,),
-          Text("Your Socre is : $score",
-          style: TextStyleClass.con), 
-          ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      elevation: 15,
-                      backgroundColor: ColorsClass2.primaryColor,
-                    ),
-                    onPressed: onReset,
-                    
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.all(15),
-                        child: Text(
-                          'Reset Quiz',
-                          style: TextStyle(
-                            color: ColorsClass2.secondColor,
-                            fontSize: 20,
-                            fontWeight: .bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+          onPressed: onReset,
+
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(15),
+              child: Text(
+                'Reset Quiz',
+                style: TextStyle(
+                  color: ColorsClass2.secondColor,
+                  fontSize: 20,
+                  fontWeight: .bold,
+                ),
+              ),
+            ),
+          ),
+        ),
       ],
     ),
   );

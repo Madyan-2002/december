@@ -12,6 +12,7 @@ import 'package:december/Lecture10/task_buttons.dart';
 import 'package:december/Lecture11/colors_class.dart';
 import 'package:december/Lecture11/task22.dart';
 import 'package:december/Lecture11/training.dart';
+import 'package:december/Lecture15/task_index.dart';
 import 'package:december/Lecture18/list_view_class.dart';
 import 'package:december/Quiz_App/quiz_app.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
       //home:ScreenCall1()
       //home:Task()
       // home:ImageWidget()
-      home:ImageInContainer()
+     // home:ImageInContainer()
       //home:Buttons()
       // home:TaskButtons()
       //home:ColorsClass()
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
       //home:Training()
       //home: QuizApp(),
      // home:ListViewClass()
+     home:TaskIndex()
     );
   }
 }
