@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ListViewClass extends StatelessWidget {
-  List<String> items = [
+  final List<String> items = [
     'Dart',
     'Flutter',
     'Firebase',
@@ -22,18 +22,17 @@ class ListViewClass extends StatelessWidget {
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             crossAxisSpacing: 12,
-            mainAxisSpacing: 10
-            ),
-         itemBuilder: (context,index) {
-          return Card(
-            elevation: 15,
-            color: Colors.deepPurple,
-            child: textFunction(items[index])
-
-          );
-         }
-         )
-        ),      
+            mainAxisSpacing: 10,
+          ),
+          itemBuilder: (context, index) {
+            return Card(
+              elevation: 15,
+              color: Colors.deepPurple,
+              child: textFunction(items[index]),
+            );
+          },
+        ),
+      ),
     );
   }
 }

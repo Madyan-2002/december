@@ -15,6 +15,8 @@ import 'package:december/Lecture11/training.dart';
 import 'package:december/Lecture15/task_index.dart';
 import 'package:december/Lecture16/task_grid.dart';
 import 'package:december/Lecture18/list_view_class.dart';
+import 'package:december/Lecture19/views/grid_view_advance.dart';
+import 'package:december/Lecture19/views/list_view_advance.dart';
 import 'package:december/Quiz_App/quiz_app.dart';
 import 'package:flutter/material.dart';
 
@@ -35,16 +37,18 @@ class MyApp extends StatelessWidget {
       //home:ScreenCall1()
       //home:Task()
       // home:ImageWidget()
-     // home:ImageInContainer()
+      // home:ImageInContainer()
       //home:Buttons()
       // home:TaskButtons()
       //home:ColorsClass()
       //home:Task22()
       //home:Training()
       //home: QuizApp(),
-     // home:ListViewClass()
-     //home:TaskIndex()
-     home:TaskGrid()
+      // home:ListViewClass()
+      //home:TaskIndex()
+      //home: TaskGrid(),
+      // home:ListViewAdvance(),
+      home: GridViewAdvance(),
     );
   }
 }
