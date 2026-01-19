@@ -14,6 +14,7 @@ import 'package:december/Lecture11/task22.dart';
 import 'package:december/Lecture11/training.dart';
 import 'package:december/Lecture15/task_index.dart';
 import 'package:december/Lecture16/task_grid.dart';
+import 'package:december/Lecture17/task_stack.dart';
 import 'package:december/Lecture18/list_view_class.dart';
 import 'package:december/Lecture19/views/grid_view_advance.dart';
 import 'package:december/Lecture19/views/list_view_advance.dart';
@@ -21,6 +22,8 @@ import 'package:december/Lecture19/views/stack25.dart';
 import 'package:december/Lecture20/nav_screen_one.dart';
 import 'package:december/Lecture20/nav_screen_three.dart';
 import 'package:december/Lecture20/nav_screen_two.dart';
+import 'package:december/Lecture21/form_class.dart';
+import 'package:december/Lecture21/text_field_class.dart';
 import 'package:december/Quiz_App/quiz_app.dart';
 import 'package:flutter/material.dart';
 
@@ -32,12 +35,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      routes: {
-        '/': (context) => NavScreenOne(),
-        "/screen2": (context) => NavScreenTwo(),
-        "/screen3": (context) => NavScreenThree(),
-      },
-      initialRoute: '/',
+      // routes: {
+      //   '/': (context) => NavScreenOne(),
+      //   "/screen2": (context) => NavScreenTwo(),
+      //   "/screen3": (context) => NavScreenThree(),
+      // },
+      //initialRoute: '/',
       debugShowCheckedModeBanner: false,
       // home:HomeScreen()
       // home:TextReview()
@@ -60,7 +63,9 @@ class MyApp extends StatelessWidget {
       // home:ListViewAdvance(),
       //home: GridViewAdvance(),
       // home: Stack25(),
-     // home: NavScreenOne(),
+      // home: NavScreenOne(),
+      //home: FormClass(),
+      home:TaskStack()
     );
   }
 }
