@@ -1,3 +1,4 @@
+import 'package:december/Gofood/splash_screen.dart';
 import 'package:december/Lecture01/home_screen.dart';
 import 'package:december/Lecture02/rich_text.dart';
 import 'package:december/Lecture03/text_review.dart';
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
       // },
       //initialRoute: '/',
       debugShowCheckedModeBanner: false,
+
       // home:HomeScreen()
       // home:TextReview()
       // home:RichTextPage()
@@ -61,11 +63,12 @@ class MyApp extends StatelessWidget {
       //home:TaskIndex()
       //home: TaskGrid(),
       // home:ListViewAdvance(),
-      //home: GridViewAdvance(),
+      // home: GridViewAdvance(),
       // home: Stack25(),
       // home: NavScreenOne(),
-      //home: FormClass(),
-      home:TaskStack()
+      //  home: FormClass(),
+      //  home:TaskStack()
+      home: const SplashScreen(),
     );
   }
 }

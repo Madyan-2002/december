@@ -35,6 +35,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   lottie: ^3.3.2
+  smooth_page_indicator: ^2.0.1
 
 dev_dependencies:
   flutter_test:
@@ -79,6 +80,11 @@ flutter:
     - family: Madyanfont
       fonts:
         - asset: assets/fonts/font1.ttf
+          style: italic
+
+    - family: splashfont
+      fonts:
+        - asset: assets/fonts/font2.ttf
           style: italic
   #   - family: Trajan Pro
   #     fonts:
