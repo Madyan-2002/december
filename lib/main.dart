@@ -25,7 +25,6 @@ import 'package:december/Lecture20/nav_screen_three.dart';
 import 'package:december/Lecture20/nav_screen_two.dart';
 import 'package:december/Lecture21/form_class.dart';
 import 'package:december/Lecture21/text_field_class.dart';
-import 'package:december/Quiz_App/quiz_app.dart';
 import 'package:flutter/material.dart';
 
 void main() {
