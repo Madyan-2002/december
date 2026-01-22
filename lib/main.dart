@@ -57,7 +57,6 @@ class MyApp extends StatelessWidget {
       //home:ColorsClass()
       //home:Task22()
       //home:Training()
-      //home: QuizApp(),
       // home:ListViewClass()
       //home:TaskIndex()
       //home: TaskGrid(),
