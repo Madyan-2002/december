@@ -25,6 +25,12 @@ import 'package:december/Lecture20/nav_screen_three.dart';
 import 'package:december/Lecture20/nav_screen_two.dart';
 import 'package:december/Lecture21/form_class.dart';
 import 'package:december/Lecture21/text_field_class.dart';
+import 'package:december/Lecture23/date_time.dart';
+import 'package:december/Lecture23/img_custom_slider.dart';
+import 'package:december/Lecture23/img_slider.dart';
+import 'package:december/Lecture23/nav.dart';
+import 'package:december/Lecture23/time.dart';
+import 'package:december/Lecture23/timeAnddate.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -60,13 +66,19 @@ class MyApp extends StatelessWidget {
       // home:ListViewClass()
       //home:TaskIndex()
       //home: TaskGrid(),
-      // home:ListViewAdvance(),
-      // home: GridViewAdvance(),
+       //home:ListViewAdvance(),
+       //home: GridViewAdvance(),
       // home: Stack25(),
       // home: NavScreenOne(),
       //  home: FormClass(),
       //  home:TaskStack()
-      home: const SplashScreen(),
+      //home: const SplashScreen(),
+      //home:Nav()
+     // home:ImgSlider()
+     // home:ImgCustomSlider()
+      //home:TimeAnddate()
+      //home:Time()
+      home:DateTime33()
     );
   }
 }

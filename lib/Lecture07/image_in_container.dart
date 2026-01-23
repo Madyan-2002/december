@@ -76,12 +76,12 @@ class ImageInContainer extends StatelessWidget {
 
                 const SizedBox(height: 20),
 
-                // ---------- Banner Image ----------
+                
                 Container(
                   width: double.infinity,
                   height: 200,
                   decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
                     image: DecorationImage(
                       image: NetworkImage(
                         "https://d2a44wklwtsxx7.cloudfront.net/wp-content/uploads/sites/15/Moon-Phases-Meaning.webp",
