@@ -49,36 +49,36 @@ class MyApp extends StatelessWidget {
       //initialRoute: '/',
       debugShowCheckedModeBanner: false,
 
-      // home:HomeScreen()
-      // home:TextReview()
-      // home:RichTextPage()
+      //home:HomeScreen()
+      //home:TextReview()
+      //home:RichTextPage()
       //home:ContainerLec()
       //home:IconWidget()
       //home:ScreenCall1()
       //home:Task()
-      // home:ImageWidget()
-      // home:ImageInContainer()
+      //home:ImageWidget()
+      //home:ImageInContainer()
       //home:Buttons()
-      // home:TaskButtons()
+      //home:TaskButtons()
       //home:ColorsClass()
       //home:Task22()
       //home:Training()
-      // home:ListViewClass()
+      //home:ListViewClass()
       //home:TaskIndex()
       //home: TaskGrid(),
-       //home:ListViewAdvance(),
-       //home: GridViewAdvance(),
-      // home: Stack25(),
-      // home: NavScreenOne(),
-      //  home: FormClass(),
-      //  home:TaskStack()
+      //home:ListViewAdvance(),
+      //home: GridViewAdvance(),
+      //home: Stack25(),
+      //home: NavScreenOne(),
+      //home: FormClass(),
+      //home:TaskStack()
       //home: const SplashScreen(),
       //home:Nav()
-     // home:ImgSlider()
-     // home:ImgCustomSlider()
+      //home:ImgSlider()
+      //home:ImgCustomSlider()
       //home:TimeAnddate()
       //home:Time()
-      home:DateTime33()
+      home: DateTime33(),
     );
   }
 }
