@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  TextInputType keyType;
-  String hint;
-  String lbl;
-  String? counter;
-  String? helper;
-  IconData preIcon;
-  Widget? suffixIcon;
-  bool obscure;
-  String? Function(String?)? validator;
-  CustomTextField({
+  final TextInputType keyType;
+  final String hint;
+  final String lbl;
+  final String? counter;
+  final String? helper;
+  final IconData preIcon;
+  final Widget? suffixIcon;
+  final bool obscure;
+  final String? Function(String?)? validator;
+
+  const CustomTextField({
     super.key,
     this.suffixIcon,
     required this.keyType,

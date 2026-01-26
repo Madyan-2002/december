@@ -1,10 +1,10 @@
 import 'package:december/Gofood/model/meal_model.dart';
 import 'package:flutter/material.dart';
 
-
 class DetailsScreen extends StatelessWidget {
-  MealModel mad;
-  DetailsScreen({super.key, required this.mad});
+  
+  final MealModel mad;
+  const DetailsScreen({super.key, required this.mad});
 
   @override
   Widget build(BuildContext context) {

@@ -2,8 +2,8 @@ import 'package:december/Gofood/model/meal_model.dart';
 import 'package:flutter/material.dart';
 
 class ItemCard extends StatelessWidget {
-  MealModel mealModel;
-  ItemCard({super.key, required this.mealModel});
+  final MealModel mealModel;
+  const ItemCard({super.key, required this.mealModel});
 
   @override
   Widget build(BuildContext context) {
