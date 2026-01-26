@@ -1,4 +1,4 @@
-import 'package:december/Gofood/introPages/colors_pages.dart';
+import 'package:december/Gofood/styles/colors_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 

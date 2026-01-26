@@ -1,4 +1,4 @@
-import 'package:december/Gofood/splash_screen.dart';
+import 'package:december/Gofood/screens/splash_screen.dart';
 import 'package:december/Lecture01/home_screen.dart';
 import 'package:december/Lecture02/rich_text.dart';
 import 'package:december/Lecture03/text_review.dart';
@@ -41,6 +41,27 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        scaffoldBackgroundColor:  Colors.white,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Color(0xCDfe210e),
+            foregroundColor: Colors.white,
+          )
+        ),
+        appBarTheme: AppBarThemeData(
+          backgroundColor: Color(0xCDfe210e),
+          foregroundColor: Colors.white,
+        ),
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          selectedItemColor: Colors.white,
+          backgroundColor: Color(0xCDfe210e),
+        ),
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        )
+        
+      ),
       // routes: {
       //   '/': (context) => NavScreenOne(),
       //   "/screen2": (context) => NavScreenTwo(),
@@ -72,13 +93,14 @@ class MyApp extends StatelessWidget {
       //home: NavScreenOne(),
       //home: FormClass(),
       //home:TaskStack()
-      //home: const SplashScreen(),
+      
+      home:  SplashScreen(),
       //home:Nav()
       //home:ImgSlider()
       //home:ImgCustomSlider()
       //home:TimeAnddate()
       //home:Time()
-      home: DateTime33(),
+      //home: DateTime33(),
     );
   }
 }

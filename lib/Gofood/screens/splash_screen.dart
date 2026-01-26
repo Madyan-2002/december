@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:december/Gofood/introPages/intro_pages.dart';
+import 'package:december/Gofood/screens/nav_bar.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
       if (!mounted) return;
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (c) => IntroPages()),
+        MaterialPageRoute(builder: (c) => NavBar()),
       );
     });
   }
