@@ -70,6 +70,14 @@ class MyApp extends StatelessWidget {
       //initialRoute: '/',
       debugShowCheckedModeBanner: false,
 
+      
+      home:  SplashScreen(),
+  
+    );
+  }
+}
+
+
       //home:HomeScreen()
       //home:TextReview()
       //home:RichTextPage()
@@ -93,14 +101,10 @@ class MyApp extends StatelessWidget {
       //home: NavScreenOne(),
       //home: FormClass(),
       //home:TaskStack()
-      
-      home:  SplashScreen(),
-      //home:Nav()
+
+          //home:Nav()
       //home:ImgSlider()
       //home:ImgCustomSlider()
       //home:TimeAnddate()
       //home:Time()
       //home: DateTime33(),
-    );
-  }
-}

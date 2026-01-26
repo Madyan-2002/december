@@ -29,9 +29,14 @@ class _NavBarState extends State<NavBar> {
           child: SizedBox(),
         ),
         title: ListTile(
-          title: Text("GoFooD"),
+          title: Text("GoFooD" ,style: TextStyle(
+              fontFamily: 'font2',
+              fontSize: 30,
+              fontWeight: .bold,
+              color: Colors.white,
+            ),),
           subtitle: Text("Your favorite food"),
-          trailing: CircleAvatar(backgroundColor: Colors.amber),
+          trailing: CircleAvatar(backgroundColor: Colors.white),
         ),
       ),
 
