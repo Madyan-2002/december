@@ -48,7 +48,7 @@ class _NavBarState extends State<NavBar> {
             index = value;
           });
         },
-        items: infoForScreen.entries
+        items:  infoForScreen.entries
             .map((i) => BottomNavigationBarItem(icon: i.value, label: i.key))
             .toList(),
       ),

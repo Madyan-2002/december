@@ -68,16 +68,11 @@ class MyApp extends StatelessWidget {
       //   "/screen3": (context) => NavScreenThree(),
       // },
       //initialRoute: '/',
-      debugShowCheckedModeBanner: false,
-
-      
-      home:  SplashScreen(),
-  
+      debugShowCheckedModeBanner: false,   
+      home:  SplashScreen(),  
     );
   }
 }
-
-
       //home:HomeScreen()
       //home:TextReview()
       //home:RichTextPage()
@@ -102,7 +97,7 @@ class MyApp extends StatelessWidget {
       //home: FormClass(),
       //home:TaskStack()
 
-          //home:Nav()
+      //home:Nav()
       //home:ImgSlider()
       //home:ImgCustomSlider()
       //home:TimeAnddate()
