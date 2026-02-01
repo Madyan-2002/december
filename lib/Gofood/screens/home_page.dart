@@ -4,14 +4,36 @@ import 'package:december/Gofood/widget/category_widget.dart';
 import 'package:december/Gofood/widget/item_card.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+String selctedItem = 'All';
+String searchText = '';
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+    // final textFactor = MediaQuery.of(context).textScaler;
+    bool isLandScape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
     List<String> categories = ["All", "Burger", "Frise", "Salad"];
+
+    List<MealModel> filtterList = meals.where((meal) {
+      final searchinCategory =
+          selctedItem == 'All' || meal.category == selctedItem;
+      final searchByUser = meal.name.toLowerCase().contains(searchText);
+      return searchinCategory && searchByUser;
+    }).toList();
+
+    //  selctedItem == 'All'
+    //     ? meals
+    //     : meals.where((meal) => meal.category == selctedItem).toList();
     return Padding(
       padding: const EdgeInsets.all(15),
       child: Column(
@@ -35,6 +57,11 @@ class HomePage extends StatelessWidget {
                 width: width * 0.70,
                 child: Center(
                   child: TextField(
+                    onChanged: (value) {
+                      setState(() {
+                        searchText = value;
+                      });
+                    },
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       prefixIcon: Icon(Icons.search),
@@ -64,30 +91,58 @@ class HomePage extends StatelessWidget {
           ),
           SizedBox(height: height * 0.02),
           SizedBox(
-            height: height * 0.06,
+            height: isLandScape ? height * 0.15 : height * 0.06,
             child: ListView.builder(
               shrinkWrap: true,
 
               itemExtent: 100,
               scrollDirection: Axis.horizontal,
               itemCount: categories.length,
-              itemBuilder: (context, index) =>
-                  CategoryWidget(colorBg: Colors.white, text: categories[index]),
+              itemBuilder: (context, index) => CategoryWidget(
+                txtColor: selctedItem == categories[index]
+                    ? Colors.white
+                    : Colors.black,
+                onTap: () {
+                  setState(() {
+                    selctedItem = categories[index];
+                  });
+                },
+                colorBg: selctedItem == categories[index]
+                    ? Color(0xCDfd4754)
+                    : Colors.white,
+                text: categories[index],
+              ),
             ),
           ),
           SizedBox(height: height * 0.02),
           Expanded(
             child: GridView.builder(
-              itemCount: meals.length,
+              itemCount: filtterList.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
+                crossAxisCount: isLandScape ? 3 : 2,
               ),
               itemBuilder: (context, index) {
                 return InkWell(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsScreen(mad: meals[index])));
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            DetailsScreen(mad: filtterList[index]),
+                      ),
+                    );
                   },
-                  child: ItemCard(mealModel: meals[index]));
+                  child: ItemCard(
+                    mealModel: filtterList[index],
+                    onTap: () {
+                      setState(() {
+                        meals[index] = filtterList[index].copyWith(
+                          isFav: !filtterList[index].isFav,
+                        );
+                      });
+                    },
+                  ),
+                );
               },
             ),
           ),

@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 class ItemCard extends StatelessWidget {
   final MealModel mealModel;
-  const ItemCard({super.key, required this.mealModel});
+  final void Function()? onTap;
+  const ItemCard({super.key, required this.mealModel , required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +38,12 @@ class ItemCard extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(bottom: 5, right: 5, child: Icon(Icons.favorite_outline)),
+          Positioned(bottom: 5, right: 5, child: InkWell(
+            onTap: onTap,
+            child: mealModel.isFav ? Icon(Icons.favorite,color: Colors.red)
+            :Icon(Icons.favorite_outline,color: Colors.red)
+          )
+          ),
         ],
       ),
     );

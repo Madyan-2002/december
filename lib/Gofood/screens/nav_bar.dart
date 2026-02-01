@@ -22,9 +22,10 @@ class _NavBarState extends State<NavBar> {
 
   @override
   Widget build(BuildContext context) {
+    bool isLandScape = MediaQuery.of(context).orientation == Orientation.landscape;
     return Scaffold(
       appBar: AppBar(
-        bottom: PreferredSize(
+        bottom: isLandScape ? null : PreferredSize(
           preferredSize: Size(double.infinity, 35),
           child: SizedBox(),
         ),

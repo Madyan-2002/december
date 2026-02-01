@@ -1,3 +1,5 @@
+import 'package:december/Gofood/model/meal_model.dart';
+import 'package:december/Gofood/widget/fav_card.dart';
 import 'package:flutter/material.dart';
 
 class FavPage extends StatefulWidget {
@@ -10,8 +12,24 @@ class FavPage extends StatefulWidget {
 class _FavPageState extends State<FavPage> {
   @override
   Widget build(BuildContext context) {
-    return  Center(
-      child: Text("Fav Page"),
+    List<MealModel> favMeals = meals
+        .where((meal) => meal.isFav == true)
+        .toList();
+    return ListView.builder(
+      itemCount: favMeals.length,
+      itemBuilder: (context, index) {
+        return FavCard(
+          mealModel: favMeals[index],
+          onTap: () {
+            setState(() {
+              int indexOfMeal = meals.indexWhere(
+                (meal) => meal.name == favMeals[index].name,
+              );
+              meals[indexOfMeal] = meals[indexOfMeal].copyWith(isFav: false);
+            });
+          },
+        );
+      },
     );
   }
 }

@@ -31,6 +31,8 @@ import 'package:december/Lecture23/img_slider.dart';
 import 'package:december/Lecture23/nav.dart';
 import 'package:december/Lecture23/time.dart';
 import 'package:december/Lecture23/timeAnddate.dart';
+import 'package:december/responsive/layout_responsive.dart';
+import 'package:december/responsive/mobile.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -69,6 +71,7 @@ class MyApp extends StatelessWidget {
       // },
       //initialRoute: '/',
       debugShowCheckedModeBanner: false,   
+      //home:LayoutResponsive()
       home:  SplashScreen(),  
     );
   }
@@ -103,3 +106,4 @@ class MyApp extends StatelessWidget {
       //home:TimeAnddate()
       //home:Time()
       //home: DateTime33(),
+      
