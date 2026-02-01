@@ -25,10 +25,10 @@ class _HomePageState extends State<HomePage> {
     List<String> categories = ["All", "Burger", "Frise", "Salad"];
 
     List<MealModel> filtterList = meals.where((meal) {
-      final searchinCategory =
+      final searchInCategory =
           selctedItem == 'All' || meal.category == selctedItem;
       final searchByUser = meal.name.toLowerCase().contains(searchText);
-      return searchinCategory && searchByUser;
+      return searchInCategory && searchByUser;
     }).toList();
 
     //  selctedItem == 'All'
