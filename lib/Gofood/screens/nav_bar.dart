@@ -1,3 +1,4 @@
+import 'package:december/Gofood/model/meal_model.dart';
 import 'package:december/Gofood/screens/cart_page.dart';
 import 'package:december/Gofood/screens/fav_page.dart';
 import 'package:december/Gofood/screens/home_page.dart';
@@ -11,45 +12,62 @@ class NavBar extends StatefulWidget {
 }
 
 class _NavBarState extends State<NavBar> {
-  List<Widget> screens = [HomePage(), FavPage(), CartPage()];
-
-  Map<String, dynamic> infoForScreen = {
-    'Home': Icon(Icons.home),
-    'Favorite': Icon(Icons.favorite),
-    'Cart': Icon(Icons.shopping_cart),
-  };
+  // 1. القائمة تبقى هنا
+  List<MealModel> cart = [];
   int index = 0;
+
+  // 2. المعلومات الأساسية للأيقونات تبقى هنا
+  Map<String, dynamic> infoForScreen = {
+    'Home': const Icon(Icons.home),
+    'Favorite': const Icon(Icons.favorite),
+    'Cart': const Icon(Icons.shopping_cart),
+  };
 
   @override
   Widget build(BuildContext context) {
+    // 3. الحل: تعريف قائمة الشاشات داخل الـ build لتتمكن من الوصول لـ cart
+    final List<Widget> screens = [
+      HomePage(cart: cart), 
+      const FavPage(), 
+      CartPage(cart: cart),
+    ];
+
     bool isLandScape = MediaQuery.of(context).orientation == Orientation.landscape;
+
     return Scaffold(
       appBar: AppBar(
-        bottom: isLandScape ? null : PreferredSize(
-          preferredSize: Size(double.infinity, 35),
-          child: SizedBox(),
-        ),
+        // إزالة الفراغ السفلي في وضع الـ Landscape
+        bottom: isLandScape
+            ? null
+            : const PreferredSize(
+                preferredSize: Size(double.infinity, 35),
+                child: SizedBox(),
+              ),
         title: ListTile(
-          title: Text("GoFooD" ,style: TextStyle(
+          title: const Text(
+            "GoFooD",
+            style: TextStyle(
               fontFamily: 'font2',
               fontSize: 30,
-              fontWeight: .bold,
+              fontWeight: FontWeight.bold, // تصحيح من .bold
               color: Colors.white,
-            ),),
-          subtitle: Text("Your favorite food"),
-          trailing: CircleAvatar(backgroundColor: Colors.white),
+            ),
+          ),
+          subtitle: const Text("Your favorite food"),
+          trailing: const CircleAvatar(backgroundColor: Colors.white),
         ),
       ),
-
+      // 4. عرض الشاشة بناءً على الاندكس الحالي
       body: screens[index],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: index,
         onTap: (value) {
+          // تحديث الحالة عند الضغط على أيقونة
           setState(() {
             index = value;
           });
         },
-        items:  infoForScreen.entries
+        items: infoForScreen.entries
             .map((i) => BottomNavigationBarItem(icon: i.value, label: i.key))
             .toList(),
       ),

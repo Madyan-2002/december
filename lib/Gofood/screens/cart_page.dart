@@ -1,17 +1,60 @@
+import 'package:december/Gofood/model/meal_model.dart';
+import 'package:december/Gofood/widget/custom_cart.dart';
 import 'package:flutter/material.dart';
 
-class CartPage extends StatefulWidget {
-  const CartPage({super.key});
+class CartPage extends StatelessWidget {
+   List<MealModel> cart;
+  CartPage({super.key, required this.cart});
 
-  @override
-  State<CartPage> createState() => _CartPageState();
-}
-
-class _CartPageState extends State<CartPage> {
+ 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text("Cart Page"),
-    );
+    return cart.isEmpty
+        ? SizedBox(width: double.infinity,
+          child: Column(
+              mainAxisAlignment: .center,
+              crossAxisAlignment: .center,
+              children: [
+                Icon(
+                  Icons.shopping_cart_checkout_outlined,
+                  size: 70,
+                  color: Colors.grey,
+                ),
+                SizedBox(height: 30),
+                Text(
+                  'Cart is Empty',
+                  style: TextStyle(
+                    fontFamily: 'font2',
+                    fontSize: 22,
+                    color: Colors.grey,
+                  ),
+                ),
+              ],
+            ),
+        )
+        : Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount:cart.length,
+                itemBuilder: (context, index) {
+                return CustomCart(foodModel: cart[index]);
+              }),
+            ),
+            Expanded(child: Text('Total price = ${calculateTotal(cart)}',style: TextStyle(
+              fontSize: 20,
+              fontWeight: .bold
+            ),)
+            )
+          ],
+        );
+  }
+
+  calculateTotal(List<MealModel> cart){
+  double sum = 0;
+  cart.forEach((meal) {
+    sum+= meal.price;
+  });
+  return sum;
   }
 }

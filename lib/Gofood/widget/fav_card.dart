@@ -11,7 +11,7 @@ class FavCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Card(
-        elevation: 25,
+        elevation: 30,
         child: SizedBox(
           child: LayoutBuilder(
             builder: (context, constraints) => Row(

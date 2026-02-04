@@ -5,7 +5,8 @@ import 'package:december/Gofood/widget/item_card.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  List <MealModel> cart;
+   HomePage({super.key ,required this.cart});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -128,7 +129,7 @@ class _HomePageState extends State<HomePage> {
                       context,
                       MaterialPageRoute(
                         builder: (context) =>
-                            DetailsScreen(mad: filtterList[index]),
+                            DetailsScreen(mad: filtterList[index], cart: widget.cart,),
                       ),
                     );
                   },
