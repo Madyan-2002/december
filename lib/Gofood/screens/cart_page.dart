@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 class CartPage extends StatelessWidget {
    List<MealModel> cart;
   CartPage({super.key, required this.cart});
-
  
   @override
   Widget build(BuildContext context) {

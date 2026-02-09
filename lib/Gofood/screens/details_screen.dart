@@ -110,9 +110,8 @@ class DetailsScreen extends StatelessWidget {
     );
   }
 
-  // دالة إضافة المنتج للسلة مع إظهار تنبيه
   void _addToCart(BuildContext context) {
-    cart.add(mad); // إضافة المنتج للقائمة
+    cart.add(mad); 
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text("تم إضافة ${mad.name} إلى السلة!"),
@@ -122,7 +121,6 @@ class DetailsScreen extends StatelessWidget {
     );
   }
 
-  // ويدجت عرض المعلومات (السعر والزر)
   Widget cardInfo(Color c, BuildContext context, double widthFactor, String txt) {
     return Card(
       color: c,
