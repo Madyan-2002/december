@@ -1,7 +1,11 @@
-import 'package:december/Gofood/screens/splash_screen.dart';
+import 'package:december/firebase_options.dart';
+import 'package:december/responsive/layout_responsive.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(MyApp());
 }
 
@@ -10,12 +14,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        scaffoldBackgroundColor:  Colors.white,
+        scaffoldBackgroundColor: Colors.white,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             backgroundColor: Color(0xCDfe210e),
             foregroundColor: Colors.white,
-          )
+          ),
         ),
         appBarTheme: AppBarThemeData(
           backgroundColor: Color(0xCDfe210e),
@@ -25,10 +29,7 @@ class MyApp extends StatelessWidget {
           selectedItemColor: Colors.white,
           backgroundColor: Color(0xCDfe210e),
         ),
-        iconTheme: IconThemeData(
-          color: Colors.white,
-        )
-        
+        iconTheme: IconThemeData(color: Colors.white),
       ),
       // routes: {
       //   '/': (context) => NavScreenOne(),
@@ -36,9 +37,8 @@ class MyApp extends StatelessWidget {
       //   "/screen3": (context) => NavScreenThree(),
       // },
       //initialRoute: '/',
-      debugShowCheckedModeBanner: false,   
-      //home:LayoutResponsive()
-      home:  SplashScreen(),  
+      debugShowCheckedModeBanner: false,
+      home: LayoutResponsive(),
     );
   }
 }
